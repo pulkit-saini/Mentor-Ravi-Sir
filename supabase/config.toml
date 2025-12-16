@@ -1,0 +1,4 @@
+project_id = "hmmzybwrqdhnvxqmwjtu"
+
+[functions.sync-internship-application]
+verify_jwt = false
