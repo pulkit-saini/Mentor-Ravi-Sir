@@ -16,6 +16,7 @@ import { PageLoadingFallback } from "./components/LoadingFallback";
 import Index from "./pages/Index";
 import CoursesPage from "./pages/Courses";
 import EventsGallery from "./pages/EventsGallery";
+import PrayuktiFest from "./pages/PrayuktiFest";
 
 // Lazy load essential pages only
 const EventsPage = lazy(() => import("./pages/Events"));
@@ -115,7 +116,7 @@ const App = () => (
                 <Route path="/internship/:id" element={<InternshipDetail />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/training" element={<CoursesPage />} />
-                <Route path="/prayukti-fest" element={<EventsGallery />} />
+                <Route path="/prayukti-fest" element={<PrayuktiFest />} />
 
                 {/* Student protected routes */}
                 <Route path="/dashboard/student" element={<ProtectedRoute><StudentDashboard /></ProtectedRoute>} />

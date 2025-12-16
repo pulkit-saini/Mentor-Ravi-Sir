@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowRight, Calendar, MapPin, Users, Clock, Briefcase } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import AuthModal from "./AuthModal";
+import AuthModal from "@/components/AuthModal";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
@@ -162,7 +162,7 @@ const Events = () => {
       // Add more event mappings here as needed
     };
     
-    return eventRouteMap[event.title] || `/event-registration?event=${event.id}`;
+    return eventRouteMap[event.title] || `/prayukti-fest`;
   };
 
   const handleEventAction = (event: Event) => {
