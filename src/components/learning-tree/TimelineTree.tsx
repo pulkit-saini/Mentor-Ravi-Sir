@@ -26,47 +26,83 @@ export const TimelineTree = ({
   const data = domainData[domain.id] || domainData.datascience;
   
   // Convert domain data into timeline branches
-  const branches: BranchNodeData[] = [{
+  const branches: BranchNodeData[] = [
+  {
     title: "Ye Kya Hai? (What is this?)",
-    description: `Understanding the essence of ${domain.name}`,
+    description: `Sabse pehle samjhte hain ki ${domain.name} actually hai kya, aur real-world me iska role kya hota hai.`,
     items: [
       ...data.whatIsThis.description,
-      `Used in: ${data.whatIsThis.usedIn.join(", ")}`
+      `Used in real life: ${data.whatIsThis.usedIn.join(", ")}`
     ],
     side: "left",
     icon: "🤔"
-  }, {
-    title: "Roles and JD (Job Descriptions)",
-    description: "Professional positions you can pursue",
+  },
+  {
+    title: "Isme Kya-Kya Kar Sakte Ho? (Roles & JDs)",
+    description:
+      "Ab jab basics clear ho gaye, to dekhte hain is field me kaun-kaun se professional roles hote hain aur unka kaam kya hota hai.",
     roles: domain.rolesWithJDs,
     side: "right",
     icon: "👔",
     hasJDs: true
-  }, {
-    title: "Essential Skills",
-    description: "Most important technical and soft skills required in this field",
+  },
+  
+  {
+    title: "Iske Liye Kya-Kya Aana Chahiye? (Skills & Tools)",
+    description:
+      "Har role ke liye kuch essential skills aur tools hote hain. Yahan wo sab cover kiya gaya hai jo industry expect karti hai.",
     items: [...domain.skills, "---TOOLS---", ...domain.tools],
     side: "left",
     icon: "💡"
-  }, {
-    title: "How to Learn",
-    description: "Your learning roadmap",
-    items: data.howToLearn.map((step) => `${step.step}. ${step.title} - ${step.desc}`),
-    side: "right",
-    icon: "🗺️"
-  }, {
-    title: "Resources",
-    description: "Resources to sharpen your skills",
-    items: data.practiceMaterials.map((item) => `${item.name} - ${item.desc}`),
+  },
+  {
+  title: "Is Field Me Aane Ke Liye (Education & Degrees)",
+  description:
+    "Is field me enter karne ke liye kaun si degrees ya academic paths helpful hote hain — yahan unka clear overview diya gaya hai.",
+  items: [
+    "BCA — Computer Applications ka strong foundation",
+    "B.Tech / B.E — Technical aur engineering-focused path",
+    "B.Sc (IT / CS) — Theory + practical learning ka balance",
+    "Diploma in Computer Science — Early entry ke liye",
+    "Non-CS Degree + Skills — Agar skills strong hain to degree optional ho sakti hai"
+  ],
+  side: "right",
+  icon: "🎓"
+},
+  {
+    title: "Isko Kaise Sikhe? (Learning Roadmap)",
+    description:
+      "Ab sabse important part — bina confusion ke, step-by-step kaise start kare aur kaise steadily progress kare.",
+    items: data.howToLearn.map(
+      (step) => `${step.step}. ${step.title} — ${step.desc}`
+    ),
     side: "left",
-    icon: "🎯"
-  }, {
-    title: "Courses",
-    description: "Learning resources and platforms",
-    items: data.courses.map((course) => `${course.title} (${course.platform}) - ${course.desc}`),
+    icon: "🗺️"
+  },
+  {
+    title: "Yahan Se Seekh Sakte Ho (Courses & Tutorials)",
+    description:
+      "Agar aapko lagta hai ki self-study thoda overwhelming ho raha hai, to ye courses aapko ek proper structure aur guidance provide karte hain.",
+    items: data.courses.map(
+      (course) => `${course.title} (${course.platform}) — ${course.desc}`
+    ),
     side: "right",
     icon: "📚"
-  }];
+  },
+  {
+    title: "Kuch Practice ke liye Resources (Practice & Resources)",
+    description:
+      "Sirf theory padhne se kaam nahi chalega. Yahan aise resources diye gaye hain jahan aap practice karke real-world understanding build kar sakte ho.",
+    items: data.practiceMaterials.map(
+      (item) => `${item.name} — ${item.desc}`
+    ),
+    side: "left",
+    icon: "🎯"
+  },
+  
+];
+
+
   return <motion.div initial={{
     opacity: 0
   }} animate={{
@@ -174,7 +210,7 @@ export const TimelineTree = ({
           ease: "easeOut"
         }} style={{
           top: "-80px",
-          height: "3000px",
+          height: "3600px",
           width: "12px",
           background: "linear-gradient(to bottom, #92400e 0%, #78350f 40%, #654321 70%, #8B4513 100%)",
           boxShadow: "inset 3px 0 8px rgba(0,0,0,0.4), inset -3px 0 8px rgba(0,0,0,0.4), 0 0 15px rgba(146,64,14,0.2)",

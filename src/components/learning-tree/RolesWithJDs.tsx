@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ExternalLink, FileText } from "lucide-react"; 
 import { RoleWithJD } from "@/data/domains";
 
 interface RolesWithJDsProps {
@@ -75,13 +75,7 @@ export const RolesWithJDs = ({ roles, icon, color, delay = 0 }: RolesWithJDsProp
                 <span className="font-medium text-foreground">{role.title}</span>
               </div>
               <div className="flex items-center gap-2">
-                <span
-                  className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary cursor-pointer hover:bg-primary/20 transition-colors"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleRole(index);
-                  }}
-                >
+                <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
                   JD
                 </span>
                 <motion.div
@@ -104,9 +98,25 @@ export const RolesWithJDs = ({ roles, icon, color, delay = 0 }: RolesWithJDsProp
             >
               <div className="px-4 pb-4 pt-2">
                 <div className="bg-white/5 rounded-lg p-4 border border-white/5">
-                  <p className="text-sm text-foreground/80 leading-relaxed">
+                  <p className="text-sm text-foreground/80 leading-relaxed mb-4">
                     {role.jd}
                   </p>
+                  
+                  {/* --- BUTTON PLACED HERE: BELOW CONTENT --- */}
+                  <div className="flex justify-end pt-3 border-t border-white/10">
+                    <a 
+                      href="https://www.google.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-semibold text-white bg-primary hover:bg-primary/90 transition-colors px-4 py-2 rounded-md shadow-lg"
+                    >
+                      <FileText className="w-4 h-4" />
+                      View Full JD
+                      <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  </div>
+                  {/* ----------------------------------------- */}
+
                 </div>
               </div>
             </motion.div>
